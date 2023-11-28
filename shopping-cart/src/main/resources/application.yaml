@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: SHOPPING-CART
+  config:
+    import:
+      - "optional:configserver:http://localhost:8088"
+#      - "optional:configserver:http://localhost:8088/mysql-database.yaml"
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_db
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true

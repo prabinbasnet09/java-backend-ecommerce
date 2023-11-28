@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_db
+    volumes:
+      - C:/Users/prabi/OneDrive/Documents/data:/var/lib/mysql
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411

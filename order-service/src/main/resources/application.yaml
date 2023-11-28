@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: ORDER-SERVICE
+  config:
+    import:
+      - "optional:configserver:http://localhost:8088"
+      - "optional:configserver:http://localhost:8088/shared-config"
+      - "optional:configserver:http://localhost:8088/mysql-database"

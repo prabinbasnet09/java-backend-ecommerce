@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: CLOUD-GATEWAY
+  config:
+    import: "optional:configserver:http://localhost:8088"
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+          filters:
+            - AuthenticationFilter
+
+        - id: product-service
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/products/**
+
+        - id: shopping-cart
+          uri: lb://SHOPPING-CART
+          predicates:
+            - Path=/shopping-cart/**
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/orders/**
+
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+
+        - id: auth-service
+          uri: lb://AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/auth/**
